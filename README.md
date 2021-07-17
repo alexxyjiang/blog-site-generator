@@ -9,7 +9,7 @@ tool for generating personal blog site
 docker run -i -t --network host -v $(pwd)/[path-to-site]:/home/editor/[path-to-site] alexxyjiang/blog-site-generator 
 ```
 
-* more details for build the site could be found at the (**gatsby**)[https://www.gatsbyjs.com/docs/tutorial/] official site, the basic command to start a new site,
+* more details for build the site could be found at the [**gatsby**](https://www.gatsbyjs.com/docs/tutorial/) official site, the basic command to start a new site,
 ```sh
 # create a new site
 gatsby new [path-to-site]
