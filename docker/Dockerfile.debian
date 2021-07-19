@@ -1,8 +1,6 @@
 FROM debian:buster
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" DEBIAN_FRONTEND="noninteractive"
-curl zsh nodejs npm git build-base cmake
-
 RUN apt-get update --fix-missing \
   && apt-get install -y binutils build-essential curl git pkg-config procps zsh
 RUN bash -c "$(curl -fsSL https://deb.nodesource.com/setup_14.x)" \
