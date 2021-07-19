@@ -1,0 +1,12 @@
+FROM alpine:3.14
+LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
+ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
+RUN apk update \
+  && apk add --no-cache curl git nodejs npm zsh
+RUN npm install -g gatsby-cli
+RUN adduser -D -s /bin/zsh editor
+USER editor
+WORKDIR /home/editor
+RUN zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+COPY .zshrc /home/editor/.zshrc
+CMD [ "/bin/zsh" ]
