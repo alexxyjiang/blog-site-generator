@@ -1,0 +1,9 @@
+FROM alpine:3.14
+LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
+ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
+RUN apk update \
+  && apk add --no-cache build-base curl git linux-headers ninja python3 zsh
+WORKDIR /root
+RUN zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+COPY .zshrc /root/.zshrc
+CMD [ "/bin/zsh" ]
