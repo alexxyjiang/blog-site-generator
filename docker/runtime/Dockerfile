@@ -2,7 +2,7 @@ FROM alpine:3.14
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
-  && apk add --no-cache curl git sudo vim zsh
+  && apk add --no-cache curl git make sudo vim zsh
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY .abuild/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
