@@ -1,9 +1,0 @@
-FROM debian:buster
-LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
-ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" DEBIAN_FRONTEND="noninteractive"
-RUN apt-get update --fix-missing \
-  && apt-get install -y binutils build-essential curl git ninja-build python3-dev zsh
-WORKDIR /root
-RUN zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-COPY .zshrc /root/.zshrc
-CMD [ "/bin/zsh" ]
