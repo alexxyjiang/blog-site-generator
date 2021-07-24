@@ -12,7 +12,8 @@ docker run -i -t --network host -v $(pwd)/[path-to-site]:/home/editor/[path-to-s
 * more details for build the site could be found at the [**gatsby**](https://www.gatsbyjs.com/docs/tutorial/) official site, the basic command to start a new site,
 ```sh
 # create a new site
-gatsby new [path-to-site]
+npm config set registry https://registry.npm.taobao.org
+gatsby new [path-to-site] https://github.com/alxshelepenok/gatsby-starter-lumen
 ```
 
 * test/build the site:
