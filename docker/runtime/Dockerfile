@@ -8,7 +8,7 @@ COPY .abuild/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
   && apk add packages/builder/x86_64/nodejs-full-14.17.3-r0.apk \
   && rm -rf packages.tar.gz packages
-RUN apk add --no-cache autoconf build-base python3 vips-dev
+RUN apk add --no-cache autoconf automake build-base python3 vips-dev
 RUN npm install -g gatsby-cli
 RUN adduser -D -s /bin/zsh editor
 RUN echo 'editor:M00n' | chpasswd
