@@ -1,18 +1,16 @@
-FROM alpine:3.14
+FROM alpine:3.18
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
-  && apk add --no-cache alpine-sdk curl git sudo vim zsh
+  && apk add --no-cache curl git sudo vim zsh \
+  && apk add --no-cache ada-dev brotli-dev build-base c-ares-dev ca-certificates icu-dev linux-headers nghttp2-dev ninja openssl-dev py3-jinja2 python3 samurai zlib-dev
 RUN adduser -D -s /bin/zsh builder
 RUN echo 'builder:M00n' | chpasswd
 RUN echo 'builder ALL=(ALL) ALL' > /etc/sudoers.d/builder
-RUN addgroup builder abuild
-COPY .abuild.tar.gz /home/builder/.abuild.tar.gz
-COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
+COPY .zshrc /home/builder/zshrc_template
 USER builder
 WORKDIR /home/builder
-RUN tar zxvf .abuild.tar.gz \
-  && rm .abuild.tar.gz
-RUN zsh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-COPY .zshrc /home/builder/.zshrc
+RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
+RUN cd .config/zsh/ohmyzsh/custom && git submodule update --init --remote --recursive && cd -
+RUN cp zshrc_template .config/zsh/.zshrc && rm zshrc_template
 CMD [ "/bin/zsh" ]
