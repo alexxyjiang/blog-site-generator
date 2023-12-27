@@ -1,0 +1,15 @@
+FROM alpine:3.18
+LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
+ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
+RUN apk update \
+  && apk add --no-cache curl git vim zsh \
+  && apk add --no-cache nodejs npm
+RUN npm install -g gatsby-cli
+RUN adduser -D -s /bin/zsh editor
+COPY .zshrc /home/editor/zshrc_template
+USER editor
+WORKDIR /home/editor
+RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
+RUN cd .config/zsh/ohmyzsh/custom && git submodule update --init --remote --recursive && cd -
+RUN cp zshrc_template .config/zsh/.zshrc && rm zshrc_template
+CMD [ "/bin/zsh" ]
