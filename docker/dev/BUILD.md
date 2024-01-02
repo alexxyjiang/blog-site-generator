@@ -27,7 +27,7 @@ cd src
 ./configure --ninja
 ninja -C out/Release -j 8
 ```
-If the the compiler is killed, it's usually an out-of-memory error and could be resolved by increasing the memory resource of docker or reducing the parallel number.
+If the compiler is killed, it's usually an out-of-memory error and could be resolved by increasing the memory resource of docker or reducing the parallel number.
 
 ## build the apk package for alpine
 * update the docker images (optional)
