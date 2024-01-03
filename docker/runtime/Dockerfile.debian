@@ -2,7 +2,7 @@ FROM debian:bookworm
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" DEBIAN_FRONTEND="noninteractive"
 RUN apt update --fix-missing \
-  && apt install -y curl git vim zsh
+  && apt install -y curl git vim util-linux zsh
 RUN bash -c "$(curl -fsSL https://deb.nodesource.com/setup_20.x)" \
   && apt update --fix-missing \
   && apt install -y nodejs
