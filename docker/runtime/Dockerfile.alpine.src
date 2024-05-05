@@ -13,7 +13,7 @@ RUN apk update \
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY --from=builder /home/builder/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
-  && apk add packages/builder/x86_64/nodejs-full-20.10.0-r1.apk \
+  && apk add packages/builder/x86_64/nodejs-full-20.12.2-r1.apk \
   && rm -rf packages.tar.gz packages
 RUN npm install -g gatsby-cli
 RUN adduser -D -s /bin/zsh editor

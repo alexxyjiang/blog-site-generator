@@ -20,7 +20,7 @@ docker run -i -t -p [port-develop]:8000 -p [port-serve]:9000 -v $(pwd)/[path-to-
 * more details for building the site can be found at the [**gatsby**](https://www.gatsbyjs.com/docs/tutorial/) official site, the basic command to start a new site,
 ```sh
 # create a new site
-npm config set registry https://registry.npm.taobao.org
+npm config set registry https://registry.npmmirror.com
 gatsby new [path-to-site] https://github.com/alxshelepenok/gatsby-starter-lumen
 ```
 

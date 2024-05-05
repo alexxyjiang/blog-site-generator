@@ -7,7 +7,7 @@
 # Contributor: Jakub Jirutka <jakub@jirutka.cz>
 # Maintainer: Alex Jiang <alexxyjiang@gmail.com>
 pkgname=nodejs-full
-pkgver=20.10.0
+pkgver=20.12.2
 pkgrel=1
 pkgdesc="JavaScript runtime built on V8 engine - LTS version"
 url="https://nodejs.org/"
@@ -146,7 +146,7 @@ dev() {
 }
 
 sha512sums="
-f601686b17bac452c7d64551bdea51929bfe82ca5477da60ae3f52367c6e0b3f8172c8a407a80f2d4f98c6462a41a012a59aaa335b0e3f19cfff52b78d7ad93b  nodejs-full-20.10.0.tar.gz
+245e5807c9f5b9671aa15c048c2caf1c0217cd74ff6d6d6462daa719b5d4667ae7b5901414b1553c7be6d86bddd327c2e5eb65135da017cf0561e0f0636cf7bb  nodejs-full-20.12.2.tar.gz
 a8595604143d5c34ecd1a4dea7457b311151346dbda2a065388ae3e5fc5021d068dd1de4167f608cd8f3d3ff8990e0ed269b756692cef4f0b623822952132770  nodejs-full.pc.in
 4fc09500212ebc178801e7419c840ccebc239ff06edcb28910315e39bfc772a3967f5ff2abff03845269e730643be161134ac95bab899069fa57dd64be98defa  system-ada.patch
 "

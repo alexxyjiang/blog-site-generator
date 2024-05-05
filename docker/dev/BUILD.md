@@ -11,13 +11,14 @@ docker build -t alexxyjiang/blog-site-generator:alpine-dev .
 
 * download source code tarball, e.g.
 ```sh
-export NODE_VERSION_TAG="v20.10.0"
-curl -L --output "node.${NODE_VERSION_TAG}.tar.gz" "https://github.com/nodejs/node/archive/refs/tags/${NODE_VERSION_TAG}.tar.gz" && tar zxvf "node.${NODE_VERSION_TAG}.tar.gz"
+export NODE_VERSION_TAG="20.12.2"
+curl -L --output "node.v${NODE_VERSION_TAG}.tar.gz" "https://github.com/nodejs/node/archive/refs/tags/v${NODE_VERSION_TAG}.tar.gz" && tar zxvf "node.v${NODE_VERSION_TAG}.tar.gz"
 ```
 
 * go to the path of downloaded source code, start the environment with sufficient memory
 ```sh
-export SOURCE_CODE_PATH="$(pwd)/node-20.10.0"
+export NODE_VERSION_TAG="20.12.2"
+export SOURCE_CODE_PATH="$(pwd)/node-${NODE_VERSION_TAG}"
 docker run -i -t -v ${SOURCE_CODE_PATH}:/home/builder/src alexxyjiang/blog-site-generator:alpine-dev
 ```
 
@@ -25,7 +26,7 @@ docker run -i -t -v ${SOURCE_CODE_PATH}:/home/builder/src alexxyjiang/blog-site-
 ```sh
 cd src
 ./configure --ninja
-ninja -C out/Release -j 8
+ninja -C out/Release -j $(nproc)
 ```
 If the compiler is killed, it's usually an out-of-memory error and could be resolved by increasing the memory resource of docker or reducing the parallel number.
 
