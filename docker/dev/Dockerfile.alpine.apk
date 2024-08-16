@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.20
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
@@ -15,6 +15,5 @@ WORKDIR /home/builder
 RUN tar zxvf .abuild.tar.gz \
   && rm .abuild.tar.gz
 RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
-RUN cd .config/zsh/ohmyzsh/custom && git submodule update --init --remote --recursive && cd -
-RUN cp zshrc_template .config/zsh/.zshrc && rm zshrc_template
+RUN zsh zshrc_template && cp zshrc_template .zshrc && rm zshrc_template
 CMD [ "/bin/zsh" ]

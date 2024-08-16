@@ -1,4 +1,4 @@
-[ -d "${ZDOTDIR}/ohmyzsh" ] && export ZSH="${ZDOTDIR}/ohmyzsh"
+[ -d "${HOME}/.config/zsh/ohmyzsh" ] && export ZSH="${HOME}/.config/zsh/ohmyzsh"
 [ -d "${HOME}/.oh-my-zsh" ] && export ZSH="${HOME}/.oh-my-zsh"
 [ -f "${ZSH}/custom.plugins.zsh" ] && zsh "${ZSH}/custom.plugins.zsh"
 ZSH_THEME="dallas"
