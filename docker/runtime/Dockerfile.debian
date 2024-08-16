@@ -3,7 +3,7 @@ LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" DEBIAN_FRONTEND="noninteractive"
 RUN apt update --fix-missing \
   && apt install -y curl git vim util-linux zsh
-RUN bash -c "$(curl -fsSL https://deb.nodesource.com/setup_20.x)" \
+RUN bash -c "$(curl -fsSL https://deb.nodesource.com/setup_22.x)" \
   && apt update --fix-missing \
   && apt install -y nodejs
 RUN npm install -g gatsby-cli
@@ -12,6 +12,5 @@ COPY .zshrc /home/editor/zshrc_template
 USER editor
 WORKDIR /home/editor
 RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
-RUN cd .oh-my-zsh/custom && git submodule update --init --remote --recursive && cd -
-RUN cp zshrc_template .zshrc && rm zshrc_template
+RUN zsh zshrc_template && cp zshrc_template .zshrc && rm zshrc_template
 CMD [ "/bin/zsh" ]
