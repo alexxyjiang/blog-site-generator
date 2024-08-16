@@ -23,14 +23,14 @@ index 55cea003..b5a08656 100644
    ]
  }
 diff --git a/node.gyp b/node.gyp
-index f092c332..06fcd510 100644
+index 46baef1d..fa8b44cd 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -465,6 +465,7 @@
+@@ -556,6 +556,7 @@
+
        'dependencies': [
          'deps/histogram/histogram.gyp:histogram',
-         'deps/uvwasi/uvwasi.gyp:uvwasi',
 +        'deps/ada/ada.gyp:ada',
        ],
- 
+
        'msvs_settings': {
