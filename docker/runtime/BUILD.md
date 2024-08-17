@@ -4,13 +4,13 @@
 * The docker file **./Dockerfile.debian** is provided with node.js on debian.
 
 ## docker commands
-* alpine 3.18 build-from-source (node 20)
+* alpine 3.20 build-from-source (node 22)
 ```sh
 cp Dockerfile.alpine.src Dockerfile
 docker build -t alexxyjiang/blog-site-generator:alpine-src .
 ```
 
-* debian bookworm (node 20)
+* debian bookworm (node 22)
 ```sh
 cp Dockerfile.debian Dockerfile
 docker build -t alexxyjiang/blog-site-generator:debian .

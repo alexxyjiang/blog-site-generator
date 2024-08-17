@@ -5,7 +5,7 @@ RUN tar zxvf src.alpine.tar.gz \
   && cd nodejs-full && abuild -r && cd - \
   && tar zcvf packages.tar.gz packages
 
-FROM alpine:3.18
+FROM alpine:3.20
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
@@ -13,7 +13,7 @@ RUN apk update \
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY --from=builder /home/builder/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
-  && apk add packages/builder/x86_64/nodejs-full-20.12.2-r1.apk \
+  && apk add packages/builder/x86_64/nodejs-full-22.6.0-r1.apk \
   && rm -rf packages.tar.gz packages
 RUN npm install -g gatsby-cli
 RUN adduser -D -s /bin/zsh editor
@@ -21,6 +21,5 @@ COPY .zshrc /home/editor/zshrc_template
 USER editor
 WORKDIR /home/editor
 RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
-RUN cd .config/zsh/ohmyzsh/custom && git submodule update --init --remote --recursive && cd -
-RUN cp zshrc_template .config/zsh/.zshrc && rm zshrc_template
+RUN zsh zshrc_template && cp zshrc_template .zshrc && rm zshrc_template
 CMD [ "/bin/zsh" ]
