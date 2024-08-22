@@ -1,4 +1,4 @@
-FROM alexxyjiang/blog-site-generator:alpine-apk AS builder 
+FROM alexxyjiang/blog-site-generator:alpine-apk AS builder
 COPY .abuild/src.alpine.tar.gz /home/builder
 RUN tar zxvf src.alpine.tar.gz \
   && mv src.alpine nodejs-full \
@@ -13,7 +13,7 @@ RUN apk update \
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY --from=builder /home/builder/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
-  && apk add packages/builder/x86_64/nodejs-full-22.6.0-r1.apk \
+  && apk add "packages/builder/$(uname -m)/nodejs-full-22.6.0-r1.apk" \
   && rm -rf packages.tar.gz packages
 RUN npm install -g gatsby-cli
 RUN adduser -D -s /bin/zsh editor
