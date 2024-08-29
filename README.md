@@ -23,7 +23,7 @@ docker run -i -t -p [port-develop]:8000 -p [port-serve]:9000 -v $(pwd)/[path-to-
 npm config set registry https://registry.npmmirror.com
 gatsby new [path-to-site] https://github.com/alxshelepenok/gatsby-starter-lumen
 
-# alternative if the gatsby way not working
+# alternative way if the gatsby way not working
 npm config set registry https://registry.npmmirror.com
 git clone --recursive --depth=1 https://github.com/alxshelepenok/gatsby-starter-lumen [path-to-site]
 cd [path-to-site] && npm install
@@ -33,12 +33,12 @@ cd [path-to-site] && npm install
 ```sh
 # switch to the site path
 cd [path-to-site]
-# test the site, add param '-H:0.0.0.0' in case you're on MacOS
-gatsby develop [-H:0.0.0.0]
+# test the site, add param '-H 0.0.0.0' in case you're on MacOS
+gatsby develop [-H 0.0.0.0]
 # build the site for release, please commit your changes before doing this
 gatsby build
-# serve inside the docker container, add param '-H:0.0.0.0' in case you're on MacOS
-gatsby serve [-H:0.0.0.0]
+# serve inside the docker container, add param '-H 0.0.0.0' in case you're on MacOS
+gatsby serve [-H 0.0.0.0]
 ```
 
 ### publish to real server
