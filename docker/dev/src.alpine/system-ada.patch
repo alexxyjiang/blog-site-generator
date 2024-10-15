@@ -23,10 +23,10 @@ index 55cea003..b5a08656 100644
    ]
  }
 diff --git a/node.gyp b/node.gyp
-index 46baef1d..fa8b44cd 100644
+index 11474953..c1d45ba0 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -556,6 +556,7 @@
+@@ -563,6 +563,7 @@
 
        'dependencies': [
          'deps/histogram/histogram.gyp:histogram',

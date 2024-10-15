@@ -9,11 +9,11 @@ FROM alpine:3.20
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
-  && apk add --no-cache curl git vim util-linux zsh
+  && apk add --no-cache curl git vim util-linux tzdata zsh
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY --from=builder /home/builder/packages.tar.gz /
 RUN tar zxvf packages.tar.gz \
-  && apk add "packages/builder/$(uname -m)/nodejs-full-22.6.0-r1.apk" \
+  && apk add "packages/builder/$(uname -m)/nodejs-full-22.9.0-r1.apk" \
   && rm -rf packages.tar.gz packages
 RUN npm install -g gatsby-cli
 RUN adduser -D -s /bin/zsh editor

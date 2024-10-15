@@ -26,13 +26,13 @@ docker build -t alexxyjiang/blog-site-generator:alpine-dev --platform linux/amd6
 
 * download source code tarball, e.g.
 ```sh
-export NODE_VERSION_TAG="22.6.0"
+export NODE_VERSION_TAG="22.9.0"
 curl -L --output "node.v${NODE_VERSION_TAG}.tar.gz" "https://github.com/nodejs/node/archive/refs/tags/v${NODE_VERSION_TAG}.tar.gz" && tar zxvf "node.v${NODE_VERSION_TAG}.tar.gz"
 ```
 
 * go to the path of downloaded source code, start the environment with sufficient memory
 ```sh
-export NODE_VERSION_TAG="22.6.0"
+export NODE_VERSION_TAG="22.9.0"
 export SOURCE_CODE_PATH="$(pwd)/node-${NODE_VERSION_TAG}"
 docker run -i -t -v ${SOURCE_CODE_PATH}:/home/builder/src alexxyjiang/blog-site-generator:alpine-dev
 ```

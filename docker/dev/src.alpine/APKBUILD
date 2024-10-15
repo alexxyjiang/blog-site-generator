@@ -7,7 +7,7 @@
 # Contributor: Jakub Jirutka <jakub@jirutka.cz>
 # Maintainer: Alex Jiang <alexxyjiang@gmail.com>
 pkgname=nodejs-full
-pkgver=22.6.0
+pkgver=22.9.0
 pkgrel=1
 pkgdesc="JavaScript runtime built on V8 engine - LTS version"
 url="https://nodejs.org/"
@@ -146,7 +146,7 @@ dev() {
 }
 
 sha512sums="
-de04d1d2dec6668c06143b0a4d6bb4cc51b61b80a6030120d099ba7b6c8d83804ae097f8c9a057724414be24616db5e0f65c75fbaf91e047dc792ce5429e9bd5  nodejs-full-22.6.0.tar.gz
+dc7d86cea470224a6995f03c00934a1aa1eb07176a08f7f172f6bffb9dcba8537a5fd9d2b1db55b3f7b428c3a43105dbf6b67376e47302d0a5ec56ebb8a63a47  nodejs-full-22.9.0.tar.gz
 a8595604143d5c34ecd1a4dea7457b311151346dbda2a065388ae3e5fc5021d068dd1de4167f608cd8f3d3ff8990e0ed269b756692cef4f0b623822952132770  nodejs-full.pc.in
-cb60f47861eb9ca73dc071571d63a479c842ec984aa847c4da671e59d830e7e3c1aa6fb1cfe0e12f70a9260e0c31c57419dec06bbf7cd4ab37cb9de05361fe16  system-ada.patch
+d9fea007e5548a31e746e83b54c878a60855c2ad3541163e85f7b71e31af4697dbdeafcd5a3ce4e6fb5a119265a66173013387091e36654e7b08414718dc2eb5  system-ada.patch
 "
