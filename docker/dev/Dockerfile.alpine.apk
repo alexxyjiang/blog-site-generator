@@ -2,7 +2,7 @@ FROM alpine:3.20
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
-  && apk add --no-cache alpine-sdk curl git sudo vim zsh
+  && apk add --no-cache alpine-sdk curl git sudo vim tzdata zsh
 RUN adduser -D -s /bin/zsh builder
 RUN echo 'builder:M00n' | chpasswd
 RUN echo 'builder ALL=(ALL) ALL' > /etc/sudoers.d/builder

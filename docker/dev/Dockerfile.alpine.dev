@@ -2,7 +2,7 @@ FROM alpine:3.20
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
-  && apk add --no-cache curl git sudo vim zsh \
+  && apk add --no-cache curl git sudo vim tzdata zsh \
   && apk add --no-cache ada-dev brotli-dev build-base c-ares-dev ca-certificates icu-dev linux-headers nghttp2-dev ninja openssl-dev py3-jinja2 python3 samurai zlib-dev
 RUN adduser -D -s /bin/zsh builder
 RUN echo 'builder:M00n' | chpasswd

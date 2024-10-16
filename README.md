@@ -9,9 +9,10 @@ tool for generating a personal blog site
 * the **gatsby** environment could be started like,
 ```sh
 # linux
-docker run -i -t --network host -v $(pwd)/[path-to-site]:/home/editor/[path-to-site] alexxyjiang/blog-site-generator
+docker run -i -t --network host -v $(pwd)/[path-to-site]:/home/editor/[path-to-site]:rw -v /etc/localtime:/etc/localtime:ro alexxyjiang/blog-site-generator
+
 # Mac OS
-docker run -i -t -p [port-develop]:8000 -p [port-serve]:9000 -v $(pwd)/[path-to-site]:/home/editor/[path-to-site] alexxyjiang/blog-site-generator
+docker run -i -t -p [port-develop]:8000 -p [port-serve]:9000 -v $(pwd)/[path-to-site]:/home/editor/[path-to-site]:rw -v /etc/localtime:/etc/localtime:ro alexxyjiang/blog-site-generator
 ```
 1. the default *latest* tag is based on alpine linux 3.18 to minimize the docker image size, you may choose *debian* tag.
 2. to enable *husky* hook support, in that case, the path `[path-to-site]` should be initalized with `git`.
