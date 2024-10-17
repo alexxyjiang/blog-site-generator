@@ -1,5 +1,10 @@
 FROM --platform=$BUILDPLATFORM alexxyjiang/blog-site-generator:alpine-apk AS builder
 COPY .abuild/src.alpine.tar.gz /home/builder
+RUN case "$TARGETPLATFORM" in \
+        "linux/amd64") export CHOST=x86_64 ;; \
+        "linux/arm64") export CHOST=aarch64 ;; \
+        *) echo "Unsupported architecture: $TARGETPLATFORM" && exit 1 ;; \
+    esac
 RUN tar zxvf src.alpine.tar.gz \
   && mv src.alpine nodejs-full \
   && cd nodejs-full && abuild -r && cd - \
