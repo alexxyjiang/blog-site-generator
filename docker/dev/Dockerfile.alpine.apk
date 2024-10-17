@@ -12,6 +12,8 @@ COPY .abuild.tar.gz /home/builder/.abuild.tar.gz
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY .zshrc /home/builder/zshrc_template
 COPY .crossplatform.sh /home/builder/crossplatform.sh
+# TODO: special patches for fakeroot, remove when fixed in future
+COPY .main.fakeroot.APKBUILD /home/builder/.main.fakeroot.APKBUILD
 USER builder
 WORKDIR /home/builder
 RUN tar zxvf .abuild.tar.gz \

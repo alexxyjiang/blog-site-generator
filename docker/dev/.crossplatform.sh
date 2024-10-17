@@ -9,8 +9,9 @@ ALPINE_VERSION="${1}"
 CURRENT_PLATFORM="${2}"
 TARGET_PLATFORMS="${3}"
 if [ ! -d aports ]; then
-  # git clone --depth 1 --branch "${ALPINE_VERSION}-stable" https://github.com/alpinelinux/aports
-  git clone --depth 1 https://github.com/alpinelinux/aports
+  git clone --depth 1 --branch "${ALPINE_VERSION}-stable" https://github.com/alpinelinux/aports
+  # TODO: special patches for fakeroot, remove when fixed in future
+  cp .main.fakeroot.APKBUILD aports/main/fakeroot/APKBUILD && rm .main.fakeroot.APKBUILD
 fi
 for platform in $(echo ${TARGET_PLATFORMS} | sed 's/,/ /g'); do
   if [ "${platform}" != "${CURRENT_PLATFORM}" ]; then
