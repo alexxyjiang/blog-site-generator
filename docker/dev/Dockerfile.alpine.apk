@@ -7,13 +7,16 @@ RUN adduser -D -s /bin/zsh builder
 RUN echo 'builder:M00n' | chpasswd
 RUN echo 'builder ALL=(ALL) ALL' > /etc/sudoers.d/builder
 RUN addgroup builder abuild
+RUN echo "/home/builder/packages/main" >> /etc/apk/repositories
 COPY .abuild.tar.gz /home/builder/.abuild.tar.gz
 COPY .abuild/builder.rsa.pub /etc/apk/keys/builder.rsa.pub
 COPY .zshrc /home/builder/zshrc_template
+COPY .crossplatform.sh /home/builder/crossplatform.sh
 USER builder
 WORKDIR /home/builder
 RUN tar zxvf .abuild.tar.gz \
   && rm .abuild.tar.gz
+RUN ./crossplatform.sh "3.20" "$(uname -m)" "x86_64,aarch64" && rm crossplatform.sh
 RUN env REPO="alexxyjiang/ohmyzsh" zsh -c "$(curl -fsSL https://raw.githubusercontent.com/alexxyjiang/ohmyzsh/master/tools/install.sh)"
 RUN zsh zshrc_template && cp zshrc_template .zshrc && rm zshrc_template
 CMD [ "/bin/zsh" ]
