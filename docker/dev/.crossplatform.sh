@@ -16,7 +16,7 @@ fi
 for platform in $(echo ${TARGET_PLATFORMS} | sed 's/,/ /g'); do
   if [ "${platform}" != "${CURRENT_PLATFORM}" ]; then
     echo "==== Cross platform support for ${platform} building ===="
-    ./aports/scripts/bootstrap.sh ${platform}
+    ./aports/scripts/bootstrap.sh ${platform} || exit 1
     echo "==== Cross platform support for ${platform} done ===="
   fi
 done
