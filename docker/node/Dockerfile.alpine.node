@@ -4,7 +4,9 @@ ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
   && apk add --no-cache curl git vim tzdata zsh
 RUN npm install -g gatsby-cli
-RUN adduser -D -s /bin/zsh editor
+ARG uid=1000
+RUN if [ $uid -eq 1000 ]; then deluser node; fi;
+RUN adduser -u $uid -D -s /bin/zsh editor
 COPY .zshrc /home/editor/zshrc_template
 USER editor
 WORKDIR /home/editor
