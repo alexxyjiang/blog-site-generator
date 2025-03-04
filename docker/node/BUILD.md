@@ -1,4 +1,4 @@
-# Offical Node Based Images + Gatsby
+# Official Node Based Images + Gatsby
 * These docker files are provided for building node + gatsby envrionment, node official builds.
 * The docker file **./Dockerfile.alpine.node** is provided with node.js on alpine.
 * The docker file **./Dockerfile.debian.node** is provided with node.js on debian-slim.
