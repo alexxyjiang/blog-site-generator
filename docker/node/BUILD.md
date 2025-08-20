@@ -19,14 +19,14 @@ docker run --privileged --rm tonistiigi/binfmt --install all
 ```
 
 ## docker commands
-* alpine 3.21 with node 22 pre-installed
+* alpine 3.22 with node 24 pre-installed
 ```sh
 cp Dockerfile.alpine.node Dockerfile
-docker pull node:22-alpine3.21 && docker build -t alexxyjiang/blog-site-generator:alpine-node --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
+docker pull node:24-alpine3.22 && docker build -t alexxyjiang/blog-site-generator:alpine-node --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
 ```
 
-* debian bookworm-slim with node 22 pre-installed
+* debian trixie with node 24 pre-installed
 ```sh
 cp Dockerfile.debian.node Dockerfile
-docker pull node:22-bookworm-slim && docker build -t alexxyjiang/blog-site-generator:debian-node --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
+docker pull node:24-trixie-slim && docker build -t alexxyjiang/blog-site-generator:debian-node --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
 ```
