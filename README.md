@@ -22,11 +22,11 @@ docker run -i -t -p [port-develop]:8000 -p [port-serve]:9000 -v $(pwd)/[path-to-
 ```sh
 # create a new site
 npm config set registry https://registry.npmmirror.com
-gatsby new [path-to-site] https://github.com/alxshelepenok/gatsby-starter-lumen
+gatsby new [path-to-site] https://github.com/alxshelepenok/lumen
 
 # alternative way if the gatsby way not working
 npm config set registry https://registry.npmmirror.com
-git clone --recursive --depth=1 https://github.com/alxshelepenok/gatsby-starter-lumen [path-to-site]
+git clone --recursive --depth=1 https://github.com/alxshelepenok/lumen [path-to-site]
 cd [path-to-site] && npm install
 ```
 

@@ -25,6 +25,12 @@ cp Dockerfile.alpine.node Dockerfile
 docker pull node:24-alpine3.22 && docker build -t alexxyjiang/blog-site-generator:alpine-node --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
 ```
 
+* alpine 3.22 with node 24 pre-installed (bun test framework ready)
+```sh
+cp Dockerfile.alpine.node_bun Dockerfile
+docker pull node:24-alpine3.22 && docker build -t alexxyjiang/blog-site-generator:alpine-node-bun --build-arg uid=$(id -u) --platform linux/amd64,linux/arm64 .
+```
+
 * debian trixie with node 24 pre-installed
 ```sh
 cp Dockerfile.debian.node Dockerfile
