@@ -1,4 +1,4 @@
-FROM node:24-alpine3.22
+FROM node:24-alpine3.23
 LABEL maintainer="Xueyuan, Jiang <alexxyjiang@gmail.com>"
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8"
 RUN apk update \
